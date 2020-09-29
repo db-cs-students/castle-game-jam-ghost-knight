@@ -5,6 +5,7 @@ Description:A knight killing the undead
 """
 #Setup
 info.set_life(3)
+info.set_score(0)
 #sprite
 knight = sprites.create(img("""
     ........................

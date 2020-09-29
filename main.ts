@@ -6,6 +6,7 @@ Description:A knight killing the undead
  */
 // Setup
 info.setLife(3)
+info.setScore(0)
 // sprite
 let knight = sprites.create(img`
     ........................
