@@ -218,7 +218,7 @@ scene.set_tile(3, img("""
     c c c c c c c c c c c c c c c c
     c c c c c c c c c c c c c c c c
 """), True)
-my_sprite = sprites.create(img("""
+enemy_one = sprites.create(img("""
     ........................
     ........................
     ........................
@@ -244,7 +244,7 @@ my_sprite = sprites.create(img("""
     ........................
     ........................
 """))
-my_sprite2 = sprites.create(img("""
+enemy_two = sprites.create(img("""
     . . . . . . . . . . . . .
     . . . f f f f f f . . . .
     . f f f f f f f f f . . .

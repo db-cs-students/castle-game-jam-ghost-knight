@@ -219,7 +219,7 @@ scene.setTile(3, img`
     c c c c c c c c c c c c c c c c
     c c c c c c c c c c c c c c c c
 `, true)
-let my_sprite = sprites.create(img`
+let enemy_one = sprites.create(img`
     ........................
     ........................
     ........................
@@ -245,7 +245,7 @@ let my_sprite = sprites.create(img`
     ........................
     ........................
 `)
-let my_sprite2 = sprites.create(img`
+let enemy_two = sprites.create(img`
     . . . . . . . . . . . . .
     . . . f f f f f f . . . .
     . f f f f f f f f f . . .
