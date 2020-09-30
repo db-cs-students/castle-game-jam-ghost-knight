@@ -7,6 +7,8 @@ Description:A knight killing the undead
 // Setup
 info.setLife(3)
 info.setScore(0)
+info.changeScoreBy(5)
+info.highScore()
 // sprite
 let knight = sprites.create(img`
     ........................
@@ -39,7 +41,7 @@ knight.ay = 100
 // sprite controls
 controller.player1.moveSprite(knight, 50, 0)
 controller.A.onEvent(ControllerButtonEvent.Pressed, function on_jump() {
-    knight.vy = -50
+    knight.vy = -70
 })
 // Background and tiles
 scene.setTileMap(img`
@@ -47,7 +49,7 @@ scene.setTileMap(img`
     ................................................
     ................................................
     ................................................
-    cccccccccccccccccccccccccccccccccccccccccccccccc
+    ................................................
     cccccccccccccccccccccccccccccccccccccccccccccccc
     cccccccccccccccccccccccccccccccccccccccccccccccc
     cccccccccccccccccccccccccccccccccccccccccccccccc
@@ -181,3 +183,83 @@ function death() {
     info.changeLifeBy(-1)
 }
 
+scene.setTile(12, img`
+    a a a c c a a a a a a c c a a a
+    c c c c c c c c c c c c c c c c
+    a a a a c a a c a c a a a a a c
+    a a c a a a c a a a a c a c a a
+    c c c c c c c c c c c c c c c c
+    c a a a c a a a a c a a a a c a
+    c c a a a a c a c a a c a a a a
+    c c c c c c c c c c a a c a c c
+    a c a a c a c a a c c c c c c c
+    a a c a a a c a a c a c a a c a
+    c c c c c c c c c c a a a c c c
+    c a a a a a a a a a c c c a a c
+    c c c c c c c c c c c c c c c c
+    a a c c a a a a a a c c a a a a
+    c c c c c c c c c c c c c c c c
+    c c c c c c c c c c c c c c c c
+`, true)
+scene.setTile(3, img`
+    c c a c c c a a c c c c a 3 3 a
+    c c a c a c a a c c a c a 3 3 3
+    c c c c a c a a c a 3 c a a 3 3
+    c c c c a c c c c a 3 c c c a a
+    c c a c a c c a c a 3 3 c c c c
+    c c a c a c a a c a 3 3 3 3 3 a
+    c c a c a c a a c c a a a a a a
+    c c a c c c a a 3 c c c c c c c
+    c c a c c c a 3 a a a a c a a a
+    c c a c a c a a a a a a c a a a
+    c c a c a c c c c c c c c c c c
+    c c a c a a a a a a a a a a a c
+    c c c c c c c c c c c c c c c c
+    c c c c a a a a a a c c a a a a
+    c c c c c c c c c c c c c c c c
+    c c c c c c c c c c c c c c c c
+`, true)
+let my_sprite = sprites.create(img`
+    ........................
+    ........................
+    ........................
+    ........................
+    ..........fffff.........
+    ........ff1111bff.......
+    .......fb1111111bf......
+    .......f111111111f......
+    ......fd1111111ffff.....
+    ......fd111dd1c111bf....
+    ......fb11fcdf1b1bff....
+    ......f11111bfbfbff.....
+    ......f1b1bdfcffff......
+    ......fbfbfcfcccf.......
+    ......ffffffffff........
+    .........ffffff.........
+    .........ffffff.........
+    .........fffffff..f.....
+    ..........fffffffff.....
+    ...........fffffff......
+    ........................
+    ........................
+    ........................
+    ........................
+`)
+let my_sprite2 = sprites.create(img`
+    . . . . . . . . . . . . .
+    . . . f f f f f f . . . .
+    . f f f f f f f f f . . .
+    . f f f f f f c f f f . .
+    f f f f c f f f c f f f .
+    f c f f c c f f f c c f f
+    f c c f f f f 7 f f f f f
+    f f f f f f f 2 7 f f f .
+    f f 7 7 f b f 7 2 f f . .
+    . f 7 7 7 1 f 7 7 f f . .
+    . f f f 7 7 7 7 7 f . . .
+    . . f 7 7 7 2 7 f f . . .
+    . . f 7 7 2 7 7 7 f . . .
+    . f f f 7 7 f 6 6 f f . .
+    . f f f f f f f f f f . .
+    . . f f . . . f f f . . .
+`)

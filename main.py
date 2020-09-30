@@ -6,6 +6,8 @@ Description:A knight killing the undead
 #Setup
 info.set_life(3)
 info.set_score(0)
+info.change_score_by(5)
+info.high_score()
 #sprite
 knight = sprites.create(img("""
     ........................
@@ -38,7 +40,7 @@ knight.ay = 100
 #sprite controls
 controller.player1.move_sprite(knight, 50, 0)
 def on_jump ():
-    knight.vy = -50
+    knight.vy = -70
 controller.A.on_event(ControllerButtonEvent.PRESSED, on_jump)
 #Background and tiles
 scene.set_tile_map(img("""
@@ -46,7 +48,7 @@ scene.set_tile_map(img("""
     ................................................
     ................................................
     ................................................
-    cccccccccccccccccccccccccccccccccccccccccccccccc
+    ................................................
     cccccccccccccccccccccccccccccccccccccccccccccccc
     cccccccccccccccccccccccccccccccccccccccccccccccc
     cccccccccccccccccccccccccccccccccccccccccccccccc
@@ -180,3 +182,83 @@ game.splash("press a to jump")
 
 def death ():
     info.change_life_by(-1)
+scene.set_tile(12, img("""
+    a a a c c a a a a a a c c a a a
+    c c c c c c c c c c c c c c c c
+    a a a a c a a c a c a a a a a c
+    a a c a a a c a a a a c a c a a
+    c c c c c c c c c c c c c c c c
+    c a a a c a a a a c a a a a c a
+    c c a a a a c a c a a c a a a a
+    c c c c c c c c c c a a c a c c
+    a c a a c a c a a c c c c c c c
+    a a c a a a c a a c a c a a c a
+    c c c c c c c c c c a a a c c c
+    c a a a a a a a a a c c c a a c
+    c c c c c c c c c c c c c c c c
+    a a c c a a a a a a c c a a a a
+    c c c c c c c c c c c c c c c c
+    c c c c c c c c c c c c c c c c
+"""), True)
+scene.set_tile(3, img("""
+    c c a c c c a a c c c c a 3 3 a
+    c c a c a c a a c c a c a 3 3 3
+    c c c c a c a a c a 3 c a a 3 3
+    c c c c a c c c c a 3 c c c a a
+    c c a c a c c a c a 3 3 c c c c
+    c c a c a c a a c a 3 3 3 3 3 a
+    c c a c a c a a c c a a a a a a
+    c c a c c c a a 3 c c c c c c c
+    c c a c c c a 3 a a a a c a a a
+    c c a c a c a a a a a a c a a a
+    c c a c a c c c c c c c c c c c
+    c c a c a a a a a a a a a a a c
+    c c c c c c c c c c c c c c c c
+    c c c c a a a a a a c c a a a a
+    c c c c c c c c c c c c c c c c
+    c c c c c c c c c c c c c c c c
+"""), True)
+my_sprite = sprites.create(img("""
+    ........................
+    ........................
+    ........................
+    ........................
+    ..........fffff.........
+    ........ff1111bff.......
+    .......fb1111111bf......
+    .......f111111111f......
+    ......fd1111111ffff.....
+    ......fd111dd1c111bf....
+    ......fb11fcdf1b1bff....
+    ......f11111bfbfbff.....
+    ......f1b1bdfcffff......
+    ......fbfbfcfcccf.......
+    ......ffffffffff........
+    .........ffffff.........
+    .........ffffff.........
+    .........fffffff..f.....
+    ..........fffffffff.....
+    ...........fffffff......
+    ........................
+    ........................
+    ........................
+    ........................
+"""))
+my_sprite2 = sprites.create(img("""
+    . . . . . . . . . . . . .
+    . . . f f f f f f . . . .
+    . f f f f f f f f f . . .
+    . f f f f f f c f f f . .
+    f f f f c f f f c f f f .
+    f c f f c c f f f c c f f
+    f c c f f f f 7 f f f f f
+    f f f f f f f 2 7 f f f .
+    f f 7 7 f b f 7 2 f f . .
+    . f 7 7 7 1 f 7 7 f f . .
+    . f f f 7 7 7 7 7 f . . .
+    . . f 7 7 7 2 7 f f . . .
+    . . f 7 7 2 7 7 7 f . . .
+    . f f f 7 7 f 6 6 f f . .
+    . f f f f f f f f f f . .
+    . . f f . . . f f f . . .
+"""))
