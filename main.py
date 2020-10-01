@@ -34,7 +34,7 @@ knight = sprites.create(img("""
     ........................
     ........................
     ........................
-"""))
+"""), SpriteKind.player)
 knight.x = 40
 knight.ay = 100
 #sprite controls
@@ -49,54 +49,54 @@ scene.set_tile_map(img("""
     ................................................
     ................................................
     ................................................
-    cccccccccccccccccccccccccccccccccccccccccccccccc
+    ................................................
     cccccccccccccccccccccccccccccccccccccccccccccccc
     cccccccccccccccccccccccccccccccccccccccccccccccc
 """))
 scene.camera_follow_sprite(knight)
 scene.set_background_image(img("""
-    9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999
-    9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999
-    9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999
-    9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999
-    9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999
-    9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999
-    9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999
-    9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999
-    9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999
-    9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999
-    9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999
-    9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999
-    9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999
-    9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999
-    9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999
-    9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999
-    999999999999999999999999999999999999999999999999999999999999999999999999999999aaaaaa999999999999999999999999999999999999999999999999999999999999aaaaaaaa99999999
-    999999999999999999999999999999999999999999999999999999999999999999aaaaaaaaaaaaaaaaaa9999999aaaaaaaa9999999999999999999aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-    99999aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-    99999aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-    99999aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-    99999aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-    99999aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-    999999aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-    999999aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-    999999aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-    999999aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-    999999aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa9aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-    999999aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa999999999999aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-    99999aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa999999999999aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-    99999aaaaaaaaaaaaaaaaaaaaaaaa9aaaaaaaaaaaaa9999999999999aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-    99999aaaaaaaaaaaaaaaaaaaaaa9d9aaaaaaaaaaaaa9999999999999aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-    99999aaaaaaaaaaaaaaaaaa9999dd9aaaaaadaaaaaa9999999999999aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-    99999aaaaaaaaaaaaaaaaaaa999ddd99999ddaaaa9999999d99999999aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-    99999aaaaaaaaaaaaaaaaaaa99ddddd9999dd9999999999ddd9999999aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-    99999aaaaaaaaaaaaaaaaaaa9ddddddd999dd9999999999ddd9999999aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-    99999aaaaaaaaaaaaaaaaaaa9d9dddd999ddd999999999ddddd999999aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-    99999aaaaaaaaaaaaaaaaaaa99ddddd999dddd99999999dddddd999999aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa9999aaaaaaaaaaaaaaaaaaa
-    99999aaaaaaaaaaaaaaaaaaa9ddddddd999dd9999999999dddd9999999aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa99aaaaaaaaaaaaa9999999999999999999999aaaaaaaaaaaaaaaaaa
-    99999aaaaaaaaaaaaaaaaaaa99dddd9dd99ddd9999999dddddd99999999aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa999aaaaaaaa9999999999999999999999999999999999999999aaaaaaaaaaaaaaaaa9
-    999999999999999999aaaaaa9dddddd999ddd999999999dddddd99999999aaaaaaaaaaaaaaaaaaaaaaaaaaaaa999999999999999999999999999999999999999999999999999999aaaaaa9999aaaaaa9
-    999999999999999999aaaaaadd9ddddd99dddd9999999ddddd9dd999999999aaaaaaaaaaaaaaaaa99aaaaaa9999999999999999999999999999999aaaaa9999999999999999999999999999999aaaaa9
+    cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+    cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+    cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+    cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+    cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+    cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+    cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+    cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+    cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+    cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+    cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+    cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+    cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+    cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+    cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+    cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+    cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+    cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc9ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+    ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccacccccccaaccccccccccccccccccccaccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+    cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccaccccccaaccccccccccccccccccccaccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+    cccccccccccccccccccccccccccccccccccccccccaacccccccccccccccccccccccccaacccccccccccccccccccaaacccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+    ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccaaacccccccccccccccccaaaaccccccccccccccccccccccccccccccccccccccccccccccccccaacccccccccccccccc
+    cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccacccccccccccccccccccaaacccccccccccccccccccccccccccccccccccccccccccccccccaaaaccccccccccccccc
+    ccccccccccccccccccccccccccccccccccacccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccaaaaccccccccccccaa
+    cccccccccccccccccccccccccccccccccaaacccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccaaaccccccccccccaa
+    cccccccccccccccccccccccccccccccccaaaccccccccccccaacccccccccccccccccccccccccccccccccccccccccccccccccccccccccccaaaaccccccccccccccaacccccccccccccccccccccccccccccaa
+    ccccccccccccccccccccccccccccccccaaaaaaccccccccaaaaaccccccccccccccccccccccccacccccccccccccccccccccccccccccccccaaaaacccccccccccccaaccccccccccccccccccccccccccccaaa
+    ccccccccccccccccccccccccccccccaaaaaaaaaaaaaaaaaaaaaaaccccccccccccccccccccccccccccccccccccccccccccccccccccccccaaaaaccccccccccccccaccccccccccccccccccccccccccccaaa
+    ccccccccccccccccccccccccccccaaaaaaaaaaaaaaa999999999999cccccccccccccccccccccccccccccccccccccaaaaaacccccacccccaaaaaacccccccccccccaacccccccacccccccccccccccccccaaa
+    9ccccccccccccccccccccccccaaaaaaaaaaaaaaaaaa999999999999aaaaaccccccccccccccccccccccccccaaaaaaaaaaaaaaaacccccccaaaaaaccccccccccccccaccccccccaccccccccccccccccccaaa
+    9ccccccccccccccccccccccccaaaa9aaaaaaaaaaaaa9999999999999aaaaaaaccccccccccccccccccccccccaaaaaaaaaaaaacccccccccaaaaaaaccccccccccccccccccccccccccccccccccccccccaaaa
+    99999cccccccccccccccccccaaa9d9aaaaaaaaaaaaa9999999999999aaaaaaaaaaaaacccccccccccccccccccaaaaaaaaaacccccccccccaaaaaaaccccccccccccccccccccccccccccccccccccccccaaaa
+    99999ccccccccccccccccaa9999dd9aaaaaadaaaaaa9999999999999aaaaaaaaaaaaaaaaaccccccccccccccccccccccccccccccccccccaaaaaaaaaccccccccccccccccccccccccccccccccccccccaaaa
+    99999cccccccccccccccaaaa999ddd99999ddaaaa9999999d99999999aaaaaaaaaaaaaaaaaaaaaaaacccccccccccccccccccccccccccaaaaaaaaaaaaccccccccccccccccccccccccccacccccccccaaaa
+    99999ccccccccccccccaaaaa99ddddd9999dd9999999999ddd9999999aaaaaaaaaaaaaaaaaaaaaaaaaccccccccccccccccccccccccaaaaaaaaaaaaaaaaaaacccccccccccccccccccaccccccccccaaaaa
+    99999ccccccccccccaaaaaaa9ddddddd999dd9999999999ddd9999999aaaaaaaaaaaaaaaaaaaaaaaaaacccccccccccccccccccccaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacccccccaccccccccccccaaaaaa
+    99999accccccccccaaaaaaaa9d9dddd999ddd999999999ddddd999999aaaaaaaaaaaaaaaaaaaaaaaaaaaccccccccccccccccccaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacccccccccccccccccccaaaaaaa
+    99999aaaaaaaaaaaaaaaaaaa99ddddd999dddd99999999dddddd999999aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacccccccccccccccccaaaaaaaa
+    99999aaaaaaaaaaaaaaaaaaa9ddddddd999dd9999999999dddd9999999aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa99aaaaaaaaaaaaa9999999999999999cccccccccccccccaaaaaaaaa
+    99999aaaaaaaaaaaaaaaaaaa99dddd9dd99ddd9999999dddddd99999999aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa999aaaaaaaa9999999999999999999999999999999999cccccccccccccaaaaaaaaaa9
+    999999999999999999aaaaaa9dddddd999ddd999999999dddddd99999999aaaaaaaaaaaaaaaaaaaaaaaaaaaaa999999999999999999999999999999999999999999999999cccccccccaaa9999aaaaaa9
+    999999999999999999aaaaaadd9ddddd99dddd9999999ddddd9dd999999999aaaaaaaaaaaaaaaaa99aaaaaa9999999999999999999999999999999aaaaa99999999999999cccccc99999999999aaaaa9
     99999999999999999999999999dddddddddddd999999ddddddd999999999999aaaaaaaaaaaaaaa999999999999999999999999999999999999aaaa99999aaa9999999999999999999999999999999999
     9999999999999999999999999ddddddddddddddddddd99dddddd999999999999999aaaaaaaaa9999999999999999999999999999999aaaaaaaa999999999a99999999999aaa999999999999999999999
     9999999999999d9999999999ddddddddddddddddddddd99dddddd9999999999999999999999999999999999999999999999999aaaaa9999aa99a9999999a999999999999aaaa9d9999999aa999999999
@@ -200,24 +200,6 @@ scene.set_tile(12, img("""
     c c c c c c c c c c c c c c c c
     c c c c c c c c c c c c c c c c
 """), True)
-scene.set_tile(3, img("""
-    c c a c c c a a c c c c a 3 3 a
-    c c a c a c a a c c a c a 3 3 3
-    c c c c a c a a c a 3 c a a 3 3
-    c c c c a c c c c a 3 c c c a a
-    c c a c a c c a c a 3 3 c c c c
-    c c a c a c a a c a 3 3 3 3 3 a
-    c c a c a c a a c c a a a a a a
-    c c a c c c a a 3 c c c c c c c
-    c c a c c c a 3 a a a a c a a a
-    c c a c a c a a a a a a c a a a
-    c c a c a c c c c c c c c c c c
-    c c a c a a a a a a a a a a a c
-    c c c c c c c c c c c c c c c c
-    c c c c a a a a a a c c a a a a
-    c c c c c c c c c c c c c c c c
-    c c c c c c c c c c c c c c c c
-"""), True)
 enemy_one = sprites.create(img("""
     ........................
     ........................
@@ -243,7 +225,7 @@ enemy_one = sprites.create(img("""
     ........................
     ........................
     ........................
-"""))
+"""),SpriteKind.enemy)
 enemy_two = sprites.create(img("""
     . . . . . . . . . . . . .
     . . . f f f f f f . . . .
@@ -261,4 +243,8 @@ enemy_two = sprites.create(img("""
     . f f f 7 7 f 6 6 f f . .
     . f f f f f f f f f f . .
     . . f f . . . f f f . . .
-"""))
+"""),SpriteKind.enemy)
+
+def on_overlap(sprite, otherSprite):
+    sprite.say("ouch")
+sprites.on_overlap(SpriteKind.player, SpriteKind.enemy, on_overlap)
