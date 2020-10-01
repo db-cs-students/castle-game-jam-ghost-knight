@@ -181,7 +181,7 @@ game.splash("press a to start")
 game.splash("press a to jump")
 
 def death ():
-    info.change_life_by(-1)
+    info.change_life_by(2)
 scene.set_tile(12, img("""
     a a a c c a a a a a a c c a a a
     c c c c c c c c c c c c c c c c

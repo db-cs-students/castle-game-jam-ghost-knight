@@ -180,7 +180,7 @@ scene.setBackgroundImage(img`
 game.splash("press a to start")
 game.splash("press a to jump")
 function death() {
-    info.changeLifeBy(-1)
+    info.changeLifeBy(2)
 }
 
 scene.setTile(12, img`
