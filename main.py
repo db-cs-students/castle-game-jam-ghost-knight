@@ -45,13 +45,13 @@ controller.A.on_event(ControllerButtonEvent.PRESSED, on_jump)
 #Background and tiles
 scene.set_tile_map(img("""
     ................................................
-    .....................................333........
-    ................................................
-    .......3..........3.......3.33..3...3333.333....
-    .....33.....3...33.3....33.....333.3........3...
-    ....3...333.3.33....3.33...3333...3..........3.3
-    cccccccccccccccccccccccccccccccccccccccccccccccc
-    cccccccccccccccccccccccccccccccccccccccccccccccc
+    ...............................................3
+    ...............................................3
+    .....................c.c....c..................3
+    ...................c.......c.c.................3
+    ........c4c......c..c.c.cc.....c...........c...3
+    .......c4444c...c4.c........c.c44c....c4c4c44c.3
+    ccccccc444444c4c44444c4c4cc44c44444c4c44444444cc
 """),)
 scene.camera_follow_sprite(knight)
 scene.set_background_image(img("""
@@ -181,7 +181,7 @@ game.splash("press a to start")
 game.splash("press a to jump")
 
 def death ():
-    info.change_life_by(2)
+    info.change_life_by(-1)
 scene.set_tile(12, img("""
     a a a c c a a a a a a c c a a a
     c c c c c c c c c c c c c c c c
@@ -245,23 +245,46 @@ enemy_two = sprites.create(img("""
     . . f f . . . f f f . . .
 """),SpriteKind.enemy)
 scene.set_tile(3, img("""
-    . . . . . . . . . c c 8 . . . .
-    . . . . . . 8 c c c f 8 c c . .
-    . . . c c 8 8 f c a f f f c c .
-    . . c c c f f f c a a f f c c c
-    8 c c c f f f f c c a a c 8 c c
-    c c c b f f f 8 a c c a a a c c
-    c a a b b 8 a b c c c c c c c c
-    a f c a a b b a c c c c c f f c
-    a 8 f c a a c c a c a c f f f c
-    c a 8 a a c c c c a a f f f 8 a
-    . a c a a c f f a a b 8 f f c a
-    . . c c b a f f f a b b c c 6 c
-    . . . c b b a f f 6 6 a b 6 c .
-    . . . c c b b b 6 6 a c c c c .
-    . . . . c c a b b c c c . . . .
-    . . . . . c c c c c c . . . . .
+    a a a c c a a a a a a c c a a a
+    3 3 3 3 c 3 3 3 3 3 3 3 c 3 3 3
+    3 3 3 3 a 3 3 3 3 3 3 3 a 3 3 3
+    a a 3 3 a 3 3 3 3 3 3 3 a c a a
+    c a a a a a 3 4 3 3 a a a a c c
+    c 3 3 3 3 3 3 4 4 3 3 3 3 3 3 a
+    c c 3 3 3 3 4 5 5 4 3 3 3 3 3 a
+    c c c a 3 a 4 1 1 4 3 3 a a a c
+    a a 3 3 3 3 c 4 4 4 3 3 3 3 a a
+    a a a 3 3 3 a e e a 3 3 3 a a a
+    c c c c 3 a a c c a a 3 a c c c
+    c a a a a a a a a a a a a a a c
+    c c c c c c c c c c c c c c c c
+    a a c c a a a a a a c c a a a a
+    c c c c c c c c c c c c c c c c
+    c c c c c c c c c c c c c c c c
 """), True)
+scene.set_tile(4, img("""
+    5 4 4 5 5 4 4 4 4 2 2 2 4 4 4 4
+    4 4 4 4 4 5 5 4 2 2 2 2 4 4 4 5
+    4 2 2 2 4 4 5 4 2 2 4 4 5 5 5 5
+    2 2 4 2 4 4 5 4 2 2 4 5 5 5 5 4
+    2 2 2 2 4 4 5 4 2 2 4 4 5 5 4 4
+    4 2 2 2 4 5 5 4 4 4 4 4 4 4 4 2
+    2 2 2 4 4 5 5 5 4 4 2 2 2 2 2 2
+    4 2 2 4 5 5 5 5 4 2 2 4 2 2 2 4
+    5 4 4 4 4 4 4 5 5 4 2 2 2 4 4 4
+    4 4 4 2 2 2 4 4 5 5 4 4 4 4 5 5
+    4 2 2 2 2 2 2 2 4 5 5 5 5 5 5 5
+    5 4 4 2 4 2 2 4 4 5 5 5 4 4 4 5
+    5 5 4 2 2 2 4 4 4 5 5 4 2 2 2 4
+    4 5 4 4 4 4 5 5 5 5 4 2 4 2 2 4
+    4 5 5 5 5 5 5 4 4 4 2 4 2 4 2 4
+    4 5 5 5 4 4 4 4 2 2 2 2 4 2 4 4
+"""), True)
+def on_hit_tile(sprite):
+    sprite.set_position(sprite.x - 20, sprite.y - 20)
+    scene.camera_shake()
+    info.change_life_by(-1)
+scene.on_hit_tile(SpriteKind.player, 4, on_hit_tile)
 
 def on_overlap(sprite, otherSprite):
     sprite.say("ouch")
