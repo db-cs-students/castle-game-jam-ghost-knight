@@ -37,18 +37,25 @@ knight = sprites.create(img("""
 """), SpriteKind.player)
 knight.x = 40
 knight.ay = 100
+can_double_jump=True
 #sprite controls
 controller.player1.move_sprite(knight, 50, 0)
 def on_jump ():
     knight.vy = -70
+  
+    vy = -10
+def on_update():
+    global can_double_jump
+    if knight.is_hitting_tile(CollisionDirection.BOTTOM):
+        can_double_jump = True
 controller.A.on_event(ControllerButtonEvent.PRESSED, on_jump)
 #Background and tiles
 scene.set_tile_map(img("""
-    ............................c...................
-    ...........................c.c..................
-    .......ccccc.....cccccccc.c...c.................
-    ...........cc..cc........c..c.............c.....
-    .............cc........c...c.c..........c.c....8
+    ................................................
+    ................................................
+    ................................................
+    ............................c.............c.....
+    .......................c.....c..........c.c....8
     ........c4c......c..c.c.cc.....c......c.c.cc....
     .......c4444c...cc.c........c.c4cc...cc4c4c44c..
     ccccccc444444c4c44c44c4c4cc44c44444c4c44444444cc

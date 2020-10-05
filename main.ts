@@ -38,18 +38,28 @@ let knight = sprites.create(img`
 `, SpriteKind.Player)
 knight.x = 40
 knight.ay = 100
+let can_double_jump = true
 // sprite controls
 controller.player1.moveSprite(knight, 50, 0)
+function on_update() {
+    
+    if (knight.isHittingTile(CollisionDirection.Bottom)) {
+        can_double_jump = true
+    }
+    
+}
+
 controller.A.onEvent(ControllerButtonEvent.Pressed, function on_jump() {
     knight.vy = -70
+    let vy = -10
 })
 // Background and tiles
 scene.setTileMap(img`
-    ............................c...................
-    ...........................c.c..................
-    .......ccccc.....cccccccc.c...c.................
-    ...........cc..cc........c..c.............c.....
-    .............cc........c...c.c..........c.c....8
+    ................................................
+    ................................................
+    ................................................
+    ............................c.............c.....
+    .......................c.....c..........c.c....8
     ........c4c......c..c.c.cc.....c......c.c.cc....
     .......c4444c...cc.c........c.c4cc...cc4c4c44c..
     ccccccc444444c4c44c44c4c4cc44c44444c4c44444444cc
