@@ -41,6 +41,22 @@ knight.ay = 100
 let can_double_jump = true
 // sprite controls
 controller.player1.moveSprite(knight, 50, 0)
+function on_jump() {
+    let can_double_jump: boolean;
+    if (can_double_jump) {
+        can_double_jump = true
+    }
+    
+}
+
+controller.A.onEvent(ControllerButtonEvent.Pressed, function jump() {
+    
+    if (can_double_jump) {
+        knight.vy = -70
+        can_double_jump = knight.isHittingTile(CollisionDirection.Bottom)
+    }
+    
+})
 function on_update() {
     
     if (knight.isHittingTile(CollisionDirection.Bottom)) {
@@ -49,10 +65,6 @@ function on_update() {
     
 }
 
-controller.A.onEvent(ControllerButtonEvent.Pressed, function on_jump() {
-    knight.vy = -70
-    let vy = -10
-})
 // Background and tiles
 scene.setTileMap(img`
     ................................................

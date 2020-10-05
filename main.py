@@ -41,14 +41,20 @@ can_double_jump=True
 #sprite controls
 controller.player1.move_sprite(knight, 50, 0)
 def on_jump ():
-    knight.vy = -70
-  
-    vy = -10
+    if can_double_jump :
+        can_double_jump = True
+def jump():
+    global can_double_jump
+    if can_double_jump:
+        knight.vy = -70
+        can_double_jump = knight.is_hitting_tile(CollisionDirection.BOTTOM)
+controller.A.on_event(ControllerButtonEvent.PRESSED, jump)
 def on_update():
     global can_double_jump
     if knight.is_hitting_tile(CollisionDirection.BOTTOM):
         can_double_jump = True
-controller.A.on_event(ControllerButtonEvent.PRESSED, on_jump)
+    elif controller.dx() <0:
+        
 #Background and tiles
 scene.set_tile_map(img("""
     ................................................
