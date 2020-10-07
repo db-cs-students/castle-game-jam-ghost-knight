@@ -77,7 +77,7 @@ function on_jump() {
 controller.A.onEvent(ControllerButtonEvent.Pressed, function jump() {
     
     if (can_double_jump) {
-        knight.vy = -70
+        knight.vy = -60
         can_double_jump = knight.isHittingTile(CollisionDirection.Bottom)
     }
     
@@ -100,10 +100,10 @@ scene.setTileMap(img`
     ................................................
     ................................................
     ................................................
-    .............c....................c.......c.....
-    .......c...............c.........c......c.c....8
-    ......c44444.....c..c...cc......c.....c.c.cc....
-    .....c44444444..cc.c......444444cc444cc4c4c44c..
+    .............c...........................c......
+    .......c...............c.......c......c..c.....8
+    ......c444444....c..c...cc....c....c..c44cc.....
+    .....c444444444.cccc44444c4444cc444c44c44c44cc..
     ccccc44444444444444444444444444444444444444444cc
 `)
 scene.cameraFollowSprite(knight)
