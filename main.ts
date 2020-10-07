@@ -6,7 +6,7 @@ Description:A knight killing the undead
  */
 // Setup
 info.setLife(3)
-info.startCountdown(20)
+info.startCountdown(25)
 // sprite
 let knight_facing_left = img`
     ........................
